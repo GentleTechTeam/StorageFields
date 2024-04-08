@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 6.0.0">
+  <meta name="description" content="storage_fields API docs, for the Dart programming language.">
+  <title>storage_fields - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">storage_fields package</li>
+  </ol>
+  <div class="self-name">storage_fields</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="storagefields">StorageFields</h1>
+<p><a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a></p>
+<p>The StorageFields provides a convenient solution for storing and utilizing data. With the ability to implement the <code>StorageFieldsService</code> using various databases such as Firestore or Postgres, this library offers flexibility and adaptability to different data storage needs.</p>
+<h2 id="features">Features:</h2>
+<ul>
+<li>
+<p><strong>Primary Storage Fields:</strong> Designed for simple data storage, Primary Storage Fields handle basic information such as age, gender, and usernames. They are ideal for data that requires straightforward storage and retrieval without dependencies or calculations.</p>
+</li>
+<li>
+<p><strong>Secondary Storage Fields:</strong> Offering a more advanced solution, Secondary Storage Fields allow for complex data handling. These fields can utilize other wrappers as dependencies and perform calculations based on their values. For example, users can calculate whether a user is considered "old" based on their age and name.</p>
+</li>
+</ul>
+<h2 id="benefits">Benefits:</h2>
+<ul>
+<li>
+<p><strong>Convenience:</strong> The StorageFields simplifies data management for managers and analysts, providing an easy-to-use format for handling data storage and retrieval.</p>
+</li>
+<li>
+<p><strong>Flexibility:</strong> Users can leverage the library's features to tailor data storage and manipulation according to their specific requirements, enhancing adaptability across different projects and scenarios.</p>
+</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>To add our package to your dependencies, you can include it in your <code>pubspec.yaml</code> and call <code>dart pub get</code>.</p>
+<h2 id="usage">Usage:</h2>
+<p>Implement your own StorageFieldService, define primary and secondary wrappers and you are ready to go.</p>
+<pre class="language-dart"><code class="language-dart">  final StorageFieldsService storageFieldsService = StorageFieldsServiceStub();
+  final userAgeFieldWrapper = UserAgeWrapper(
+    storageFieldsService: storageFieldsService,
+  );
+
+  final userIsOldFieldWrapper = UserIsOldWrapper(
+    storageFieldsService: storageFieldsService,
+    userAgeWrapper: userAgeFieldWrapper,
+  );
+  final now = DateTime.now();
+
+  var userIsOld = userIsOldFieldWrapper.get(date: now);
+  print(userIsOld);
+
+  /// Return false because user age is not set
+
+  /// Set user age to 20
+  userAgeFieldWrapper.set(value: 20, date: now);
+
+  userIsOld = userIsOldFieldWrapper.get(date: now);
+  print(userIsOld);
+
+  /// Return false because user age is less than 30
+
+  /// Set user age to 40
+  userAgeFieldWrapper.set(value: 40, date: now);
+
+  userIsOld = userIsOldFieldWrapper.get(date: now);
+  print(userIsOld);
+
+  /// Return true because user age is greater than 30
+</code></pre>
+<h2 id="license">License</h2>
+<p>This project is licensed under the <a href="LICENSE">MIT License</a>.</p>
+<h2 id="contact">Contact</h2>
+<ul>
+<li>Author: Gentle Tech Team</li>
+<li>Email: gentletechteam@gmail.com</li>
+<li>Website: <a href="gentletech.net">gentletech.net</a></li>
+</ul>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="storage_fields">
+  <span class="name"><a href="storage_fields/storage_fields-library.html">storage_fields</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li class="self-crumb">storage_fields package</li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">storage_fields</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="storage_fields/storage_fields-library.html">storage_fields</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    storage_fields
+      1.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
