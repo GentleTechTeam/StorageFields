@@ -1,3 +1,4 @@
+//ignore_for_file: prefer-moving-to-variable
 import 'package:storage_fields/storage_fields.dart';
 
 import 'primary_field_wrapper_example.dart';

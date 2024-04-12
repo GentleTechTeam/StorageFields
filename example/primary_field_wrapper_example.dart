@@ -1,6 +1,7 @@
 import 'package:json_annotation/src/json_converter.dart';
 import 'package:storage_fields/storage_fields.dart';
 
+//ignore: prefer-match-file-name
 class UserAgeWrapper extends PrimaryStorageFieldWrapper<int> {
   @override
   final StorageFieldsService storageFieldsService;
@@ -25,7 +26,7 @@ class UserAgeWrapper extends PrimaryStorageFieldWrapper<int> {
   @override
 
   /// Converts value to JSON and vice versa
-  JsonConverter<int?, Object?> get valueConverter => IntValueConverter();
+  JsonConverter<int?, Object?> get valueConverter => const IntValueConverter();
 }
 
 class IntValueConverter implements JsonConverter<int?, Object?> {

@@ -12,9 +12,6 @@ class StorageField extends Equatable {
   @JsonKey(name: StorageFieldKeys.value)
   // ignore: no-object-declaration
   final Object? value;
-
-  /// Start date of current date group
-  /// Please use [StorageFieldDateGroup.createDateGroupKey] to generate key
   @JsonKey(toJson: toJsonUntouched, name: StorageFieldKeys.dateGroupKey)
   final DateTime? dateGroupKey;
   @JsonKey(toJson: toJsonUntouched, name: StorageFieldKeys.updatedAt)

@@ -4,6 +4,7 @@ import 'package:storage_fields/storage_fields.dart';
 
 import 'primary_field_wrapper_example.dart';
 
+//ignore: prefer-match-file-name
 class UserIsOldWrapper
     extends SecondaryStorageFieldWrapper<bool, DependencyResolveResult1<int?>> {
   @override
@@ -24,7 +25,8 @@ class UserIsOldWrapper
       SecondaryFieldValidityParams.validForDay();
 
   @override
-  JsonConverter<bool, Object?> get valueConverter => throw BoolValueConverter();
+  JsonConverter<bool?, Object?> get valueConverter =>
+      const BoolValueConverter();
 
   /// Define the dependencies for the secondary field
   @override
@@ -54,6 +56,7 @@ class BoolValueConverter implements JsonConverter<bool?, Object?> {
   /// But its value can be set whenever the preferred behavior is not return a `null`
   /// in cases that there is no value stored on the storage field
   final bool? defaultValue;
+
   const BoolValueConverter({
     this.defaultValue,
   });

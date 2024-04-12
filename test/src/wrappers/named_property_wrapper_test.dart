@@ -944,7 +944,8 @@ void main() {
             () async {
               final value =
                   await calculatedFieldBasedOnExternalDataForwardingWrapper.get(
-                      date: now);
+                date: now,
+              );
 
               expect(
                 value?.wrapped,
@@ -972,7 +973,8 @@ void main() {
 
               final nextValue =
                   await calculatedFieldBasedOnExternalDataForwardingWrapper.get(
-                      date: now);
+                date: now,
+              );
               expect(
                 nextValue?.wrapped,
                 'dep_1_for_date1: ${now.toIso8601String()} dep_1_for_date2: ${tomorrow.toIso8601String()} this_for_base_date: null',
