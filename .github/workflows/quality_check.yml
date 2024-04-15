@@ -1,0 +1,16 @@
+name: Quality Check
+
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - ".vscode/**"
+      - "README.md"
+      - ".gitignore"
+  workflow_dispatch:
+
+jobs:
+  dart_quality_check:
+    uses: GentleTechTeam/GentleGithubWorkflows/.github/workflows/dart_quality_check.yml@main
+    with:
+      DART_SDK_VERSION: "2.18.6"
